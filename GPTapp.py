@@ -4,6 +4,19 @@
 import streamlit as st
 import os
 
+import streamlit as st
+
+st.write("### 簡単なアンケート")
+
+like_streamlit = st.checkbox("Streamlitが好きですか？")
+
+if like_streamlit:
+    level = st.radio("どれくらい好きですか？", ("ちょっと", "まあまあ", "とても"))
+    st.write(f"レベル：{level}")
+else:
+    st.write("これから好きになるかもしれませんね！")
+
+
 # Input
 input_program = st.text_area('本当の最初のメッセージ')
 input_error = st.text_area('次のメッセージ')
