@@ -3,7 +3,14 @@
 import streamlit as st
 import os
 
-st.write("### 問題のページ")
+if !st.session_state['status']:
+    status=0
+else:
+    status=st.session_state['status']
+    
+st.write("### 問題のページ"+str(status))
+status +=1
+st.session_state['status']=status
 
 prob = st.button("問題 (quiz)")
 
