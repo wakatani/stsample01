@@ -5,7 +5,7 @@ import streamlit as st
 import os
 
 # Input
-input_program = st.text_area('最初のメッセージ')
+input_program = st.text_area('本当の最初のメッセージ')
 input_error = st.text_area('次のメッセージ')
 msgFinal=''
 
