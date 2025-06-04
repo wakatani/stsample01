@@ -1,10 +1,7 @@
 #
 #
-
 import streamlit as st
 import os
-
-import streamlit as st
 
 st.write("### 簡単なアンケート")
 
@@ -18,7 +15,7 @@ else:
 
 
 # Input
-input_program = st.text_area('本当の最初のメッセージ')
+input_program = st.text_area('本当に本当の最初のメッセージ')
 input_error = st.text_area('次のメッセージ')
 msgFinal=''
 
