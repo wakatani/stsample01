@@ -3,15 +3,17 @@
 import streamlit as st
 import os
 
-st.write("### 簡単なアンケート")
+st.write("### 問題のページ")
 
-like_streamlit = st.checkbox("Streamlitが好きですか？")
+prob = st.button("問題 (quiz)")
 
-if like_streamlit:
-    level = st.radio("どれくらい好きですか？", ("ちょっと", "まあまあ", "とても"))
-    st.write(f"レベル：{level}")
-else:
-    st.write("これから好きになるかもしれませんね！")
+if prob:
+  like_streamlit = st.checkbox("Streamlitが好きですか？")
+  if like_streamlit:
+      level = st.radio("どれくらい好きですか？", ("ちょっと", "まあまあ", "とても"))
+      st.write(f"レベル：{level}")
+  else:
+      st.write("これから好きになるかもしれませんね！")
 
 
 # Input
