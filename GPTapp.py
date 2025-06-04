@@ -7,9 +7,16 @@ if 'status' in st.session_state:
     status=st.session_state['status']
 else:
     status=0
+
+if 'counter' in st.session_state:
+    counter=st.session_state['counter']
+else:
+    counter=0
+
     
-st.write("### 問題のページ"+str(status))
-status +=1
+st.write("### 問題のページ "+str(status)+" "+str(counter))
+counter +=1
+st.session_state['counter']=counter
 st.session_state['status']=status
 
 prob = st.button("問題 (quiz)")
