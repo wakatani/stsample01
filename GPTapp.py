@@ -3,10 +3,10 @@
 import streamlit as st
 import os
 
-if !st.session_state['status']:
-    status=0
-else:
+if st.session_state['status']:
     status=st.session_state['status']
+else:
+    status=0
     
 st.write("### 問題のページ"+str(status))
 status +=1
