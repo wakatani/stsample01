@@ -3,7 +3,7 @@
 import streamlit as st
 import os
 
-if st.session_state['status']:
+if 'status' in st.session_state:
     status=st.session_state['status']
 else:
     status=0
