@@ -1,5 +1,37 @@
 #
 #
+#
+from math import exp
+import json
+from openai import OpenAI
+import os
+import random
+import copy
+import streamlit as st
+
+#load_dotenv()
+
+#
+# APIキーは環境変数にセットしておく
+#
+client = OpenAI()
+
+#
+
+st.title("■ Let's study scikit-learn ■")
+
+lang = st.radio(label='Which lang.?',
+                 options=('Japanese', 'English'),
+                 index=0,
+                 horizontal=True,
+)
+if lang=="Japanese":
+  language="日本語"
+else:
+  language="英語"
+
+#
+#
 import streamlit as st
 import os
 
