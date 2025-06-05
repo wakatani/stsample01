@@ -31,6 +31,14 @@ elif status==1:
     quiz_st=st.session_state['quiz_st']
     answ_st=st.session_state['answ_st']
     st.write("Q: "+quiz_st)
+    status=2
+    st.session_state['status']=status
+    st.button("答えは (answer)")
+
+elif status==2:
+    quiz_st=st.session_state['quiz_st']
+    answ_st=st.session_state['answ_st']
+    st.write("Q: "+quiz_st)
     st.write("A: "+answ_st)
     status=0
     st.session_state['status']=status
