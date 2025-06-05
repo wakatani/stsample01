@@ -40,7 +40,7 @@ elif status==1:
     b.append("3. choice AB")
     b.append("X. No idea")
     st.radio(label='Which is correct?',
-             options=(b[0],b[1],b[2],b[3],b[4])
+             options=(b[0],b[1],b[2],b[3],b[4]),
              index=4,
     )
 
