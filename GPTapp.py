@@ -31,7 +31,7 @@ elif status==1:
       level = st.radio("どれくらい好きですか？", ("ちょっと", "まあまあ", "とても"))
       st.write(f"レベル：{level}")
   else:
-      st.write("これから好きになるかもしれませんね！")
+      st.write("これから好きになるかもしれませんね！"+str(like_streamlit))
   status=0
   st.session_state['status']=status
   
