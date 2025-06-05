@@ -170,6 +170,7 @@ elif status==2:
   expl="  [ {0} ]".format(explanation)
     
   st.write(ans)
+  st.write(ans2)
   st.write(expl)
   counter=st.session_state['counter']
   msg="-----------------------------------------------------{0}".format(counter)
