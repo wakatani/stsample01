@@ -39,6 +39,29 @@ counter +=1
 st.session_state['counter']=counter
 st.session_state['status']=status
 
+#
+# 問題作成の元になる文章群
+#
+explanationList=[
+    "scikit-learnでLasso回帰を使う場合は、Lasso関数を用います。",
+    "scikit-learnでRidge回帰を使う場合は、Ridge関数を用います。",
+    "scikit-learnで線形回帰を使う場合は、LinearRegression関数を用います。"
+]
+
+probtypeList=[
+    "関数の名前を問うようにしろ。",
+    "オプションの値の大小について問うようにしろ。",
+    "オプションについて問うようにしろ。",
+    "Numpyと組み合せるようにしろ。",
+    "pandasと組み合せるようにしろ。"
+]
+
+quiz_response="NONE"
+b=["","","",""]
+ans=""
+expl=""
+
+
 if status==0:
     #st.button("問題 (quiz)")
     lang = st.radio(label='言語を選択してください (Which lang is preferable?)',
