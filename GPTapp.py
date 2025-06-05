@@ -83,6 +83,8 @@ elif status==1:
   language=st.session_state['language']
   st.session_state['counter'] += 1
 
+  st.write("言語は"+language)
+
   explanation=explanationList[int(random.random()*len(explanationList))]
   probtype   =probtypeList[int(random.random()*len(probtypeList))]
 
