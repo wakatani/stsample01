@@ -61,7 +61,6 @@ b=["","","",""]
 ans=""
 expl=""
 
-
 if status==0:
     #st.button("問題 (quiz)")
     lang = st.radio(label='言語を選択してください (Which lang is preferable?)',
@@ -77,22 +76,65 @@ if status==0:
     st.session_state['status']=status
     
 elif status==1:
-    quiz_st="This is ...."+str(status)+"-"+str(counter)
-    answ_st="The answer is ...."+str(status)+"-"+str(counter)
-    st.session_state['quiz_st']=quiz_st
-    st.session_state['answ_st']=answ_st
-    st.write("Q: "+quiz_st)
-    status=2
-    st.session_state['status']=status
-    b=[]
-    b.append("1. choice A")
-    b.append("2. choice B")
-    b.append("3. choice O")
-    b.append("4. choice AB")
-    st.radio(label='Which is correct?',
-             options=(b[0],b[1],b[2],b[3]),
-             index=None,
-    )
+#
+# 文章群から文章をランダムに選ぶ
+#
+  st.session_state['counter'] += 1
+
+  explanation=explanationList[int(random.random()*len(explanationList))]
+  probtype   =probtypeList[int(random.random()*len(probtypeList))]
+
+  response1 = client.chat.completions.create(
+    model="gpt-4o-2024-08-06",
+    temperature=0.8,
+    messages=[
+      {"role": "system",\
+               "content":"あなたは機械学習の専門家です。知っている知識を駆使して初心者向けの機械学習の学習のための問題を作ります。"},
+      {"role": "user",\
+               "content": "「{0}」の文章に関して、Pythonの4択問題を考えます。問題にはPythonコードの一部を穴埋めする問題とします。問題のPythonコードと問題文と、4個の選択肢の文言とその答の番号を示せ。選択肢の文言は選択肢の番号は不要である。また、Pythonコードは改行をつけること。また、Pythonコードではデータの初期化をすること。「{1}」を守ること。正解の選択肢以外の選択肢の文言は間違っているようにすること。{2}で。".format(explanation,probtype,language)}],
+    response_format={
+        "type": "json_schema",
+        "json_schema": {
+            "name": "quiz_data",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "問題文": {"type": "string"},
+                    "Pythonコード": {"type": "string"},
+                    "選択肢１": {"type": "string"},
+                    "選択肢２": {"type": "string"},
+                    "選択肢３": {"type": "string"},
+                    "選択肢４": {"type": "string"},
+                    "答え": {"type": "number"},
+                },
+                "required": ["問題文","Pythonコード","選択肢１", "選択肢２", "選択肢３", "選択肢４","答え"],
+                "additionalProperties": False,
+            },
+            "strict": True,
+        },
+    },
+  )
+
+  quiz_response = json.loads(response1.choices[0].message.content)
+  st.session_state['quiz'] = quiz_response
+  st.session_state['expl'] = explanation
+
+  quiz_st="This is ...."+str(status)+"-"+str(counter)
+  answ_st="The answer is ...."+str(status)+"-"+str(counter)
+  st.session_state['quiz_st']=quiz_st
+  st.session_state['answ_st']=answ_st
+  st.write("Q: "+quiz_st)
+  status=2
+  st.session_state['status']=status
+  b=[]
+  b.append("1. choice A")
+  b.append("2. choice B")
+  b.append("3. choice O")
+  b.append("4. choice AB")
+  st.radio(label='Which is correct?',
+           options=(b[0],b[1],b[2],b[3]),
+           index=None,
+  )
 
 elif status==2:
     quiz_st=st.session_state['quiz_st']
