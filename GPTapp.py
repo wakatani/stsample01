@@ -143,15 +143,19 @@ elif status==1:
   st.code(msg)
   msg="次の選択肢から正しいものを選べ (Choose the correct one)"
   st.write(msg)
-  answer=st.radio(label='Which is correct?',
-           options=(b[0],b[1],b[2],b[3]),
-           index=None,
-  )
+  #st.radio(label='Which is correct?',
+#           options=(b[0],b[1],b[2],b[3]),
+#           index=None,
+#  )
+  for i in range(4):
+      st.write(b[i])
   msg="-----------------------------------------------------"
   st.write(msg)
+  answer=st.text_input("あなたの答えは？ (Your answer?)")
   status=2
   st.session_state['status']=status
   st.session_state['answer']=answer
+
   
 elif status==2:
 
