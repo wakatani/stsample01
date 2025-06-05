@@ -74,15 +74,18 @@ if status==0:
       language="英語"
     status=1
     st.session_state['status']=status
+    st.session_state['lang']=lang
     st.session_state['language']=language
     
 elif status==1:
 #
 # 文章群から文章をランダムに選ぶ
 #
+  lang=st.session_state['lang']
   language=st.session_state['language']
   st.session_state['counter'] += 1
 
+  st.write("langは"+lang)
   st.write("言語は"+language)
 
   explanation=explanationList[int(random.random()*len(explanationList))]
