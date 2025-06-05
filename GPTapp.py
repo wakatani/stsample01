@@ -74,7 +74,7 @@ if status==0:
       language="英語"
     status=1
     st.session_state['status']=status
-    st.session_state['lang']=lang
+    st.session_state['lang']=str(lang)
     st.session_state['language']=language
     
 elif status==1:
