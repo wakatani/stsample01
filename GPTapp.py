@@ -151,7 +151,7 @@ elif status==1:
       st.write(b[i])
   msg="-----------------------------------------------------"
   st.write(msg)
-  answer=st.text_input("あなたの答えは？ (Your answer?)")
+  answer=st.text_area("あなたの答えは？ (Your answer?)",max_chars=3)
   st.button("解答 (check)")
   status=2
   st.session_state['status']=status
