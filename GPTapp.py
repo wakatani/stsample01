@@ -121,6 +121,30 @@ elif status==1:
   st.session_state['quiz'] = quiz_response
   st.session_state['expl'] = explanation
 
+  msg=quiz_response
+  prob=quiz_response["問題文"]
+  code="{0}".format(quiz_response["Pythonコード"])
+  b[0]="１：{0}".format(quiz_response["選択肢１"])
+  b[1]="２：{0}".format(quiz_response["選択肢２"])
+  b[2]="３：{0}".format(quiz_response["選択肢３"])
+  b[3]="４：{0}".format(quiz_response["選択肢４"])
+  ans ="答えは{0}です。".format(quiz_response["答え"])
+  expl="  [ {0} ]".format(explanation)
+
+  counter=st.session_state['counter']
+  msg="-----------------------------------------------------{0}".format(counter)
+  st.write(msg)
+  msg=prob
+  st.write(msg)
+  msg=code
+  st.code(msg)
+  msg="次の選択肢から正しいものを選べ (Choose the correct one)"
+  st.write(msg)
+  for i in range(4):
+    st.write(b[i])
+  msg="-----------------------------------------------------"
+  st.write(msg)
+  
   quiz_st="This is ...."+str(status)+"-"+str(counter)
   answ_st="The answer is ...."+str(status)+"-"+str(counter)
   st.session_state['quiz_st']=quiz_st
