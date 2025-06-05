@@ -178,15 +178,9 @@ elif status==2:
     st.write(b[i])
     msg="-----------------------------------------------------"
     st.write(msg)
-    msg="◇◇◇ 次の問題は「次へ」を押してください (click next, again.)"
-    st.write(msg)
+  msg="◇◇◇ 次の問題は「次へ」を押してください (click next, again.)"
+  st.write(msg)
     
-  
-  language=st.session_state['language']
-  quiz_st=st.session_state['quiz_st']
-  answ_st=st.session_state['answ_st']
-  st.write("Q: "+quiz_st)
-  st.write("A: "+answ_st)
   st.button("次へ (next)"+str(status)+"-"+str(counter))
   status=1
   st.session_state['status']=status
