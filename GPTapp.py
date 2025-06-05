@@ -34,16 +34,5 @@ elif status==1:
   st.write("A: "+answ_st)
   status=0
   st.session_state['status']=status
+  st.button("次へ (next)")
   
-# Input
-input_program = st.text_area('本当に本当の最初のメッセージ')
-input_error = st.text_area('次のメッセージ')
-msgFinal=''
-
-# Process
-if st.button('結合'):
-
-  msgFinal='結合結果は「'+input_program+'」と「'+input_error+'」でした'
-  
-# Output
-  st.write(msgFinal)
