@@ -142,8 +142,10 @@ elif status==1:
   st.code(msg)
   msg="次の選択肢から正しいものを選べ (Choose the correct one)"
   st.write(msg)
-  for i in range(4):
-    st.write(b[i])
+  st.radio(label='Which is correct?',
+           options=(b[0],b[1],b[2],b[3]),
+           index=None,
+  )
   msg="-----------------------------------------------------"
   st.write(msg)
   
