@@ -82,7 +82,6 @@ elif status==1:
 #
 # 文章群から文章をランダムに選ぶ
 #
-  lang=st.session_state['lang']
   language=st.session_state['language']
   st.session_state['counter'] += 1
 
