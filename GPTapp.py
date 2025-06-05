@@ -26,8 +26,8 @@ if status==0:
 elif status==1:
     quiz_st="This is ...."+str(status)+"-"+str(counter)
     answ_st="The answer is ...."+str(status)+"-"+str(counter)
-    quiz_st=st.session_state['quiz_st']
-    answ_st=st.session_state['answ_st']
+    st.session_state['quiz_st']=quiz_st
+    st.session_state['answ_st']=answ_st
     st.write("Q: "+quiz_st)
     status=2
     st.session_state['status']=status
