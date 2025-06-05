@@ -149,24 +149,37 @@ elif status==1:
   msg="-----------------------------------------------------"
   st.write(msg)
   
-  quiz_st="This is ...."+str(status)+"-"+str(counter)
-  answ_st="The answer is ...."+str(status)+"-"+str(counter)
-  st.session_state['quiz_st']=quiz_st
-  st.session_state['answ_st']=answ_st
-  st.write("Q: "+quiz_st)
-  status=2
-  st.session_state['status']=status
-  b=[]
-  b.append("1. choice A")
-  b.append("2. choice B")
-  b.append("3. choice O")
-  b.append("4. choice AB")
-  st.radio(label='Which is correct?',
-           options=(b[0],b[1],b[2],b[3]),
-           index=None,
-  )
-
 elif status==2:
+
+  quiz_response=st.session_state['quiz']
+  explanation=st.session_state['expl']
+  
+  prob=quiz_response["問題文"]
+  code="{0}".format(quiz_response["Pythonコード"])
+  b[0]="１：{0}".format(quiz_response["選択肢１"])
+  b[1]="２：{0}".format(quiz_response["選択肢２"])
+  b[2]="３：{0}".format(quiz_response["選択肢３"])
+  b[3]="４：{0}".format(quiz_response["選択肢４"])
+  ans ="答えは{0}です。(The answer is {0}.)".format(quiz_response["答え"])
+  expl="  [ {0} ]".format(explanation)
+    
+  st.write(ans)
+  st.write(expl)
+  counter=st.session_state['counter']
+  msg="-----------------------------------------------------{0}".format(counter)
+  st.write(msg)
+  msg=prob
+  st.write(msg)
+  msg=code
+  st.code(msg)
+  for i in range(4):
+    st.write(b[i])
+    msg="-----------------------------------------------------"
+    st.write(msg)
+    msg="◇◇◇ 次の問題は「次へ」を押してください (click next, again.)"
+    st.write(msg)
+    
+  
   language=st.session_state['language']
   quiz_st=st.session_state['quiz_st']
   answ_st=st.session_state['answ_st']
