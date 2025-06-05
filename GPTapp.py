@@ -20,19 +20,18 @@ st.session_state['status']=status
 if status==0:
     prob = st.button("問題 (quiz)")
     if prob:
-        like_streamlit = st.checkbox("Streamlitが好きですか？")
+        quiz_st="This is ...."+str(status)"-"+str(counter)
+        answ_st="The answer is ...."+str(status)"-"+str(counter)
         status=1
-        st.session_state['like_streamlit']=like_streamlit
-        st.write("debug 01 "+str(like_streamlit))
         st.session_state['status']=status
+        st.session_state['quiz_st']=quiz_st
+        st.session_state['answ_st']=answ_st
         
 elif status==1:
-  like_streamlit=st.session_state['like_streamlit']
-  if like_streamlit:
-      level = st.radio("どれくらい好きですか？", ("ちょっと", "まあまあ", "とても"))
-      st.write(f"レベル：{level}")
-  else:
-      st.write("これから好きになるかもしれませんね！"+str(like_streamlit))
+  quiz_st=st.session_state['quiz_st']
+  answ_st=st.session_state['answ_st']
+  st.write("Q: "+quiz_st)
+  st.write("A: "+answ_st)
   status=0
   st.session_state['status']=status
   
