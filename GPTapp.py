@@ -20,8 +20,8 @@ st.session_state['status']=status
 if status==0:
     prob = st.button("問題 (quiz)")
     if prob:
-        quiz_st="This is ...."+str(status)"-"+str(counter)
-        answ_st="The answer is ...."+str(status)"-"+str(counter)
+        quiz_st="This is ...."+str(status)+"-"+str(counter)
+        answ_st="The answer is ...."+str(status)+"-"+str(counter)
         status=1
         st.session_state['status']=status
         st.session_state['quiz_st']=quiz_st
