@@ -34,7 +34,7 @@ if 'counter' in st.session_state:
     counter=st.session_state['counter']
 else:
     counter=0
-st.write("### 問題のページ "+str(status)+"-"+str(counter))
+#st.write("### 問題のページ "+str(status)+"-"+str(counter))
 counter +=1
 st.session_state['counter']=counter
 st.session_state['status']=status
