@@ -42,7 +42,7 @@ st.session_state['status']=status
 if status==0:
     #st.button("問題 (quiz)")
     lang = st.radio(label='言語を選択してください (Which lang is preferable?)',
-                    options=('日本語 (Japanese)', '英語 (English)', 'None'),
+                    options=('日本語 (Japanese)', '英語 (English)'),
                     index=None,
                     horizontal=True,
     )
@@ -65,10 +65,9 @@ elif status==1:
     b.append("1. choice A")
     b.append("2. choice B")
     b.append("3. choice O")
-    b.append("3. choice AB")
-    b.append("X. No idea")
+    b.append("4. choice AB")
     st.radio(label='Which is correct?',
-             options=(b[0],b[1],b[2],b[3],b[4]),
+             options=(b[0],b[1],b[2],b[3]),
              index=None,
     )
 
