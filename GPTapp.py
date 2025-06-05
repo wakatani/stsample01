@@ -148,9 +148,7 @@ elif status==1:
   )
   msg="-----------------------------------------------------"
   st.write(msg)
-  if answer:
-    status=2
-  st.button("確定 (confirm)")
+  status=2
   st.session_state['status']=status
   
 elif status==2:
