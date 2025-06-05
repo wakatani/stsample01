@@ -47,7 +47,7 @@ elif status==2:
     answ_st=st.session_state['answ_st']
     st.write("Q: "+quiz_st)
     st.write("A: "+answ_st)
-    st.button("次へ (next)"):
+    st.button("次へ (next)")
     status=1
     st.session_state['status']=status
   
