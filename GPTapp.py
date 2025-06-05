@@ -23,6 +23,7 @@ if status==0:
         like_streamlit = st.checkbox("Streamlitが好きですか？")
         status=1
         st.session_state['like_streamlit']=like_streamlit
+        st.write("debug 01 "+str(like_streamlit))
         st.session_state['status']=status
         
 elif status==1:
