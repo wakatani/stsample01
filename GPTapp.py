@@ -74,11 +74,13 @@ if status==0:
       language="英語"
     status=1
     st.session_state['status']=status
+    st.session_state['language']=language
     
 elif status==1:
 #
 # 文章群から文章をランダムに選ぶ
 #
+  language=st.session_state['language']
   st.session_state['counter'] += 1
 
   explanation=explanationList[int(random.random()*len(explanationList))]
@@ -137,11 +139,12 @@ elif status==1:
   )
 
 elif status==2:
-    quiz_st=st.session_state['quiz_st']
-    answ_st=st.session_state['answ_st']
-    st.write("Q: "+quiz_st)
-    st.write("A: "+answ_st)
-    st.button("次へ (next)"+str(status)+"-"+str(counter))
-    status=1
-    st.session_state['status']=status
+  language=st.session_state['language']
+  quiz_st=st.session_state['quiz_st']
+  answ_st=st.session_state['answ_st']
+  st.write("Q: "+quiz_st)
+  st.write("A: "+answ_st)
+  st.button("次へ (next)"+str(status)+"-"+str(counter))
+  status=1
+  st.session_state['status']=status
   
