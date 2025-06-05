@@ -151,9 +151,11 @@ elif status==1:
   st.write(msg)
   status=2
   st.session_state['status']=status
+  st.session_state['answer']=answer
   
 elif status==2:
 
+  answer=st.session_state['answer']
   quiz_response=st.session_state['quiz']
   explanation=st.session_state['expl']
   
@@ -164,6 +166,7 @@ elif status==2:
   b[2]="３：{0}".format(quiz_response["選択肢３"])
   b[3]="４：{0}".format(quiz_response["選択肢４"])
   ans ="答えは{0}です。(The answer is {0}.)".format(quiz_response["答え"])
+  ans2="あなたの答えは{0}でした。(Your answer was {0}.)".format(answer)
   expl="  [ {0} ]".format(explanation)
     
   st.write(ans)
