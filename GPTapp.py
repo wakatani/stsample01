@@ -68,6 +68,7 @@ if status==0:
                     index=None,
                     horizontal=True,
     )
+    st.write("言語は ",str(lang))
     if lang=="日本語 (Japanese)":
       language="日本語"
     else:
