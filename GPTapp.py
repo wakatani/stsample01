@@ -75,7 +75,6 @@ if status==0:
     if lang:
       status=1
     st.session_state['status']=status
-    st.session_state['lang']=str(lang)
     st.session_state['language']=language
     st.button("確定")
     
@@ -86,9 +85,6 @@ elif status==1:
   lang=st.session_state['lang']
   language=st.session_state['language']
   st.session_state['counter'] += 1
-
-  st.write("langは"+lang)
-  st.write("言語は"+language)
 
   explanation=explanationList[int(random.random()*len(explanationList))]
   probtype   =probtypeList[int(random.random()*len(probtypeList))]
