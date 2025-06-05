@@ -77,6 +77,7 @@ if status==0:
     st.session_state['status']=status
     st.session_state['lang']=str(lang)
     st.session_state['language']=language
+    st.button("確定")
     
 elif status==1:
 #
