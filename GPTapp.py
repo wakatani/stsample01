@@ -33,7 +33,16 @@ elif status==1:
     st.write("Q: "+quiz_st)
     status=2
     st.session_state['status']=status
-    st.button("答えは (answer)")
+    b=[]
+    b.append("1. choice A")
+    b.append("2. choice B")
+    b.append("3. choice O")
+    b.append("3. choice AB")
+    b.append("X. No idea")
+    st.radio(label='Which is correct?',
+             options=(b[0],b[1],b[2],b[3],b[4])
+             index=4,
+    )
 
 elif status==2:
     quiz_st=st.session_state['quiz_st']
