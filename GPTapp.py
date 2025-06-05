@@ -76,7 +76,7 @@ if status==0:
       status=1
     st.session_state['status']=status
     st.session_state['language']=language
-    st.button("確定")
+    st.button("確定 (confirm)")
     
 elif status==1:
 #
@@ -142,13 +142,15 @@ elif status==1:
   st.code(msg)
   msg="次の選択肢から正しいものを選べ (Choose the correct one)"
   st.write(msg)
-  st.radio(label='Which is correct?',
+  answer=st.radio(label='Which is correct?',
            options=(b[0],b[1],b[2],b[3]),
            index=None,
   )
   msg="-----------------------------------------------------"
   st.write(msg)
-  status=2
+  if answer:
+    status=2
+  st.button("確定 (confirm)")
   st.session_state['status']=status
   
 elif status==2:
