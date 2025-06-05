@@ -176,8 +176,8 @@ elif status==2:
   st.code(msg)
   for i in range(4):
     st.write(b[i])
-    msg="-----------------------------------------------------"
-    st.write(msg)
+  msg="-----------------------------------------------------"
+  st.write(msg)
   msg="◇◇◇ 次の問題は「次へ」を押してください (click next, again.)"
   st.write(msg)
     
