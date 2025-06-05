@@ -148,6 +148,8 @@ elif status==1:
   )
   msg="-----------------------------------------------------"
   st.write(msg)
+  status=2
+  st.session_state['status']=status
   
 elif status==2:
 
